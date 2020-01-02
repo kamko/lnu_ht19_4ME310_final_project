@@ -3,6 +3,8 @@ from flask_cors import CORS
 
 from server import views
 from server.config import AppConfiguration
+from server.db import db
+from server.serialization import ma
 
 
 def create_app():
@@ -23,3 +25,5 @@ def register_blueprints(app):
 
 def register_plugins(app):
     CORS(app)
+    db.init_app(app)
+    ma.init_app(app)
