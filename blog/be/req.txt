@@ -1,0 +1,16 @@
+blog
+    - vytvorit prispevok (POST /admin/article)
+    - zobrazit vsetky prispevky (mozno strankovane) (GET /articles)
+    - publikovat/skryt prispevok (PUT /admin/article/publish | PUT /admin/article/unpublish)
+
+popularity-job
+    - zaradit prispevok, ze chce popularitu 
+    - fetchnut popularitu z druhej appky
+
+- prispevok
+    - nadpis
+    - obsah
+    - datum publikacie
+    - datum vytvorenia
+    - uroven popularity
+    - published
