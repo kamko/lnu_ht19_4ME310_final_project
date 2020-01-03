@@ -1,0 +1,28 @@
+name: blog-fe image
+
+on:
+  push:
+    branches:
+      - "master"
+    paths:
+      - ".github/workflows/blog-fe.yml"
+      - "blog/fe/**"
+      - "!blog/fe/README.md"
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build image and publish
+        uses: elgohr/Publish-Docker-Github-Action@2.11
+        with:
+          name: kamko/lnu_ht19_4me310_final_project_blog-fe
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          workdir: blog/fe
+          snapshot: true
