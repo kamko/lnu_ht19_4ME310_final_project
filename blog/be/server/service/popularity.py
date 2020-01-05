@@ -1,7 +1,10 @@
+import functools
 from datetime import datetime
 
 from server import db
 from server.db import Article
+
+print = functools.partial(print, flush=True)
 
 
 def check_new_articles(app):

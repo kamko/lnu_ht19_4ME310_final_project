@@ -3,7 +3,7 @@ services:
   blog-be:
     image: kamko/lnu_ht19_4me310_final_project_blog-be
     environment:
-      - PREDICTION_CHECK_INTERVAL=4
+      - PREDICTION_CHECK_INTERVAL=15
       - SQLALCHEMY_DATABASE_URI=postgresql://postgres:pass123@database:5432/postgres
     expose:
       - 5000
