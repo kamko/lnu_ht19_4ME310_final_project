@@ -1,1 +1,11 @@
-<p>article works!</p>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{ data.title }}
+        </mat-panel-title>
+        <mat-panel-description>
+            Published: {{ data.publishedAt | date: 'medium' }}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{ data.content }}</p>
+</mat-expansion-panel>

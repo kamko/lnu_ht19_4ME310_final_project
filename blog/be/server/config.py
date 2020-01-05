@@ -6,3 +6,5 @@ class AppConfiguration(metaclass=MetaFlaskEnv):
     ADMIN_ACCESS_TOKEN = 'lalalal'
     SQLALCHEMY_DATABASE_URI = r'sqlite:///C:\Users\j\projects\adaptive-web-project\blog\be\db.sqlite'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    ITEMS_PER_PAGE=20

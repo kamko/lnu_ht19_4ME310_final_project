@@ -1,0 +1,56 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> id </th>
+            <td mat-cell *matCellDef="let article"> {{ article.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let article"> {{ article.title }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef> Created </th>
+            <td mat-cell *matCellDef="let article"> {{ article.createdAt | date: 'medium' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="publishedAt">
+            <th mat-header-cell *matHeaderCellDef> Published at </th>
+            <td mat-cell *matCellDef="let article"> {{ article?.publishedAt | date: 'medium' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="isPublished">
+            <th mat-header-cell *matHeaderCellDef> Published </th>
+            <td mat-cell *matCellDef="let article"> {{ article.isPublished }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="popularity">
+            <th mat-header-cell *matHeaderCellDef> Popularity level </th>
+            <td mat-cell *matCellDef="let article"> {{ article?.popularityLevel }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>
+                Akcie
+            </th>
+            <td mat-cell *matCellDef="let article">
+                <button *ngIf="article.isPublished" mat-icon-button matTooltip="Unpublish" (click)="unpublish(article)">
+                    <mat-icon>exit_to_app</mat-icon>
+                </button>
+                <button *ngIf="!article.isPublished" mat-icon-button matTooltip="Publish" (click)="publish(article)">
+                    <mat-icon>publish</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Edit" [routerLink]="['/admin', 'article', article.id]">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator (page)="pageEvent = handleEvent($event)"></mat-paginator>
+</div>

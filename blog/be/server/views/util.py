@@ -6,13 +6,13 @@ from server.config import AppConfiguration
 
 
 def jsonify_page(items, page):
-    return jsonify(obj={
+    return jsonify({
         'items': items,
         'page': page.page,
-        'has_next': page.has_next,
-        'has_prev': page.has_prev,
+        'hasNext': page.has_next,
+        'hasPrev': page.has_prev,
         'pages': page.pages,
-        'per_page': page.per_page,
+        'perPage': page.per_page,
         'total': page.total
     })
 

@@ -1,0 +1,14 @@
+<div class="editor">
+  <ng-container class="form" *ngIf="data$ | async as data">
+    <mat-form-field>
+      <input matInput placeholder="Title" [(ngModel)]="data.title">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput matTextareaAutosize matAutosizeMinRows=15 matAutosizeMaxRows=75 placeholder="Content" [(ngModel)]="data.content"></textarea>
+    </mat-form-field>
+    <div class="button-row">
+      <button mat-button (click)="saveArticle(data)">Save</button>
+      <button mat-button (click)="returnBack()">Return</button>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,10 @@
+.editor {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.button-row {
+    text-align: center;
+    flex-direction: row;
+}
