@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
-  MatToolbarModule, MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatExpansionModule, MatPaginatorModule, MatTableModule, MatIconModule
+  MatToolbarModule, MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatExpansionModule, MatPaginatorModule, MatTableModule, MatIconModule, MatMenuModule
 } from '@angular/material';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleComponent } from './article/article.component';
@@ -40,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatPaginatorModule,
     MatTableModule,
     MatIconModule,
+    MatMenuModule,
     RouterModule.forRoot(routes, { enableTracing: true }),
   ],
   providers: [],

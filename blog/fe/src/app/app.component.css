@@ -1,7 +1,10 @@
 mat-toolbar mat-icon {
     margin-top: -0.5em;
     margin-right: 2ex;
-    font-size: 200%;
+    font-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .app-content { margin: .5em; }

@@ -37,7 +37,7 @@ export class AdminArticleEditorComponent implements OnInit {
         map(id => +id),
         switchMap(id =>
           (id === 0)
-            ? of(AdminArticleEditorComponent.placeholder)
+            ? of(Object.assign({}, AdminArticleEditorComponent.placeholder))
             : this.service.fetchArticle(id)
         )
       );
@@ -65,6 +65,6 @@ export class AdminArticleEditorComponent implements OnInit {
   }
 
   returnBack() {
-    this.location.back();
+    this.router.navigate(['/', 'admin', 'articles']);
   }
 }

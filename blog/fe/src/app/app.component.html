@@ -1,5 +1,10 @@
 <mat-toolbar color="primary">
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
   <span>4M310 - Final project - blog</span>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/']">Articles</button>
+    <button mat-menu-item [routerLink]="['/','admin', 'articles']">Admin</button>
+  </mat-menu>
 </mat-toolbar>
 <div class="app-content">
   <router-outlet></router-outlet>
