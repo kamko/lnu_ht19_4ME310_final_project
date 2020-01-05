@@ -1,8 +1,12 @@
+from datetime import datetime
+
 from server import db
 from server.db import Article
 
 
 def check_new_articles(app):
+    print(datetime.now())
+
     with app.app_context():
         articles = Article.query \
             .filter_by(popularity_level=None) \

@@ -6,6 +6,6 @@ COPY . .
 
 RUN npm install && npm run build:prod
 
-FROM nginx:1.17.6
+FROM garwan/spa-server:0.2.2
 
-COPY --from=builder /app/dist/ /usr/share/nginx/html/
+COPY --from=builder /app/dist/ /www/
