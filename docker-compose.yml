@@ -1,4 +1,29 @@
 version: "3.7"
 services:
   blog-be:
+    image: kamko/lnu_ht19_4me310_final_project_blog-be
+    environment:
+      - PREDICTION_CHECK_INTERVAL=4
+      - SQLALCHEMY_DATABASE_URI=postgresql://postgres:pass123@database:5432/postgres
+    expose:
+      - 5000
+    depends_on:
+      database
+
   blog-fe:
+    image: kamko/lnu_ht19_4me310_final_project_blog-fe
+    ports:
+      - 80:80
+    environment:
+      - SPA_API_PROXY_TARGET=http://blog-be:5000
+
+  database:
+    image: postgres:12
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    expose:
+      - 5432
+    ports:
+      - 5555:5432
+    environment:
+      - POSTGRES_PASSWORD=pass123

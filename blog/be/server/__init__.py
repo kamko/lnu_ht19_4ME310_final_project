@@ -25,8 +25,8 @@ def create_app():
 
 def register_blueprints(app):
     app.register_blueprint(views.root, url_prefix='/')
-    app.register_blueprint(views.admin, url_prefix='/admin')
-    app.register_blueprint(views.article, url_prefix='/article')
+    app.register_blueprint(views.admin, url_prefix='api/admin')
+    app.register_blueprint(views.article, url_prefix='api/article')
 
 
 def register_plugins(app):
