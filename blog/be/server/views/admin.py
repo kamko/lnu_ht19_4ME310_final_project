@@ -2,7 +2,7 @@ from datetime import datetime
 
 from flask import Blueprint, request
 
-from server import AppConfiguration
+from server.config import AppConfiguration
 from server.db import db, Article
 from server.serialization import ArticleSchema
 from server.views.util import jsonify_page
