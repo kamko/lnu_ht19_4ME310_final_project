@@ -8,7 +8,7 @@ services:
     expose:
       - 5000
     depends_on:
-      database
+      - database
 
   blog-fe:
     image: kamko/lnu_ht19_4me310_final_project_blog-fe
