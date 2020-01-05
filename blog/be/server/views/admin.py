@@ -36,7 +36,6 @@ def fetch(article_id):
 
 
 @blueprint.route('/article', methods=['POST'])
-# @admin_api_access
 def create_article():
     body = request.json
     article = Article(
@@ -65,7 +64,6 @@ def update_article(article_id):
 
 
 @blueprint.route('/article/<int:article_id>/publish', methods=['PUT'])
-# @admin_api_access
 def publish(article_id):
     article = Article.query.get_or_404(article_id)
 
@@ -78,7 +76,6 @@ def publish(article_id):
 
 
 @blueprint.route('/article/<int:article_id>/unpublish', methods=['PUT'])
-# @admin_api_access
 def unpublish(article_id):
     article = Article.query.get_or_404(article_id)
 
