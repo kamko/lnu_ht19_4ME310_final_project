@@ -17,7 +17,7 @@ _articles_schema = ArticleSchema(many=True)
 def list_all():
     page_num = request.args.get('page', 1, type=int)
     page = Article.query \
-        .order_by(Article.published_at.desc()) \
+        .order_by(Article.created_at.desc()) \
         .paginate(page_num, AppConfiguration.ITEMS_PER_PAGE, False)
 
     return jsonify_page(items=_articles_schema.dump(page.items),
