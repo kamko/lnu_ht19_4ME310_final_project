@@ -16,6 +16,8 @@ services:
       - 80:80
     environment:
       - SPA_API_PROXY_TARGET=http://blog-be:5000
+    depends_on:
+      - blog-be
 
   database:
     image: postgres:12
