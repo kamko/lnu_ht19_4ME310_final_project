@@ -1,4 +1,4 @@
-FROM kamko:ml-base
+FROM kamko/ml-base
 
 COPY requirements.txt run.py model.pickle ./
 
