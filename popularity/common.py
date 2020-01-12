@@ -45,3 +45,56 @@ def save_model(model):
 def read_model():
     with open('model.pickle', 'rb') as f:
         return pickle.load(f)
+
+
+def normalize(text):
+    import unicodedata
+
+    text = text.replace('\r', '')
+    text = text.replace('\n', ' ')
+    text = unicodedata.normalize('NFKD', text)
+
+    return text
+
+
+def create_features(df):
+    from textblob import TextBlob
+    import pandas as pd
+
+    content_length = []
+    number_of_words_in_title = []
+    number_of_words_in_content = []
+
+    title_sentiment_polarity = []
+    title_sentiment_subjectivity = []
+
+    content_sentiment_polarity = []
+    content_sentiment_subjectivity = []
+
+    for row in df.itertuples(index=True):
+        title_blob = TextBlob(normalize(row.title))
+        body_blob = TextBlob(normalize(row.body))
+
+        content_length.append(len(body_blob))
+        number_of_words_in_title.append(len(title_blob.words))
+        number_of_words_in_content.append(len(body_blob.words))
+
+        title_sentiment_polarity.append(title_blob.sentiment[0])
+        title_sentiment_subjectivity.append(title_blob.sentiment[1])
+
+        content_sentiment_polarity.append(body_blob.sentiment[1])
+        content_sentiment_subjectivity.append(body_blob.sentiment[1])
+
+    ndf = pd.DataFrame()
+
+    ndf['content_length'] = content_length
+    ndf['number_of_words_in_title'] = number_of_words_in_title
+    ndf['number_of_words_in_content'] = number_of_words_in_content
+
+    ndf['title_sentiment_polarity'] = title_sentiment_polarity
+    ndf['title_sentiment_subjectivity'] = title_sentiment_subjectivity
+
+    ndf['content_sentiment_polarity'] = content_sentiment_polarity
+    ndf['content_sentiment_subjectivity'] = content_sentiment_subjectivity
+
+    return ndf

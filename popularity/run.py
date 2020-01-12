@@ -21,11 +21,13 @@ def predict():
 
     result = model.predict(features)
 
-    return jsonify({'prediction': result[0]})
+    return jsonify({'prediction': int(result[0])})
 
 
 def make_features(df):
-    return df
+    from common import create_features
+    x = create_features(df)
+    return x
 
 
 if __name__ == '__main__':
