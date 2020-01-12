@@ -4,6 +4,7 @@ services:
     image: kamko/lnu_ht19_4me310_final_project_blog-be
     environment:
       - PREDICTION_CHECK_INTERVAL=15
+      - PREDICTOR_URL=http://predictor:5000
       - SQLALCHEMY_DATABASE_URI=postgresql://postgres:pass123@database:5432/postgres
     expose:
       - 5000
@@ -27,3 +28,11 @@ services:
       - 5555:5432
     environment:
       - POSTGRES_PASSWORD=pass123
+
+  predictor:
+    image: kamko/lnu_ht19_4me310_final_project_blog-predictor
+    expose:
+      - 5000
+    depends_on:
+      - blog-be
+    

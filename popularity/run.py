@@ -1,5 +1,5 @@
 import pandas as pd
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 from common import read_model
 
@@ -21,7 +21,7 @@ def predict():
 
     result = model.predict(features)
 
-    return result[0]
+    return jsonify({'prediction': result[0]})
 
 
 def make_features(df):

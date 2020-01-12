@@ -1,7 +1,10 @@
 import functools
 from datetime import datetime
 
+import requests
+
 from server import db
+from server.config import AppConfiguration
 from server.db import Article
 
 print = functools.partial(print, flush=True)
@@ -34,4 +37,11 @@ def _handle(article):
 
 
 def _fetch_prediction(article):
-    return 3
+    res = requests.post(
+        url=f'{AppConfiguration.PREDICTOR_URL}/prediction',
+        json={
+            'title': article.title,
+            'body': article.content
+        }
+    )
+    return res.json()['prediction']

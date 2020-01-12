@@ -8,3 +8,5 @@ class AppConfiguration(metaclass=MetaFlaskEnv):
 
     PREDICTION_CHECK_INTERVAL = 30
     ITEMS_PER_PAGE = 20
+
+    PREDICTOR_URL = 'http://localhost:5001'
