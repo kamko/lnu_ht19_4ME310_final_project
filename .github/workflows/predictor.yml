@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Build image and publish
-        uses: elgohr/Publish-Docker-Github-Action@2.11
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: kamko/lnu_ht19_4me310_final_project_blog-predictor
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
